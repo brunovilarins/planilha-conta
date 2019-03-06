@@ -1,2 +1,2 @@
-# planilha-conta
-Python Challenge - Planilha de Conta
+# Planilha de Conta
+
