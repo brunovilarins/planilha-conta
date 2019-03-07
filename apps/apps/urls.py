@@ -11,7 +11,7 @@ urlpatterns = [
 
     path('formulario/', FormContaAPIView.as_view()),
     path('lista/?<str:ordering>', ContaAPIView.as_view()),
-    path('lista/', ContaAPIView.as_view()),
-    path('autenticacao/', LoginView.as_view()),
+    path('lista/', ContaAPIView.as_view(), name='lista'),
+    path('autenticacao/', LoginView.as_view(), name='autenticacao'),
     path('', views.LoginView.as_view(template_name='rest_framework/login.html')),
 ]
