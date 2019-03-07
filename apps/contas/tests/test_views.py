@@ -8,7 +8,7 @@ from rest_framework.test import APITestCase
 from contas.models import Conta
 
 
-class TodoListCreateAPIViewTestCase(APITestCase):
+class ContaAPIViewTestCase(APITestCase):
     url = reverse("lista")
 
     def setUp(self):
