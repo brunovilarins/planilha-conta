@@ -25,6 +25,15 @@
 # Lista
 
   **GET**: /lista
+     
+   **Parametros na URL** 
+     
+      /lista/?ordering=nome
+      /lista/?ordering=valor
+      /lista/?ordering=nome,valor
+      
+      Para ordenar de forma descendente utilizar o sinal de - (menos) na frente do campo. Ex.: /lista/?ordering=-nome.
+  
   
   **HEADER**
   
