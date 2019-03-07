@@ -51,6 +51,22 @@ class ContaAPIViewTestCase(APITestCase):
         print(response.data)
         self.assertEqual(200, response.status_code)
 
+    def test_formulario_conta_entrada_valida(self):
+        response = self.client.post(reverse('formulario'), {'nome': 'Job', 'valor': 2000.00, 'tipo': 'Entrada'})
+        self.assertEqual(201, response.status_code)
+
+    def test_formulario_conta_entrada_invalida(self):
+        response = self.client.post(reverse('formulario'), {'nome': 'Job', 'valor': 2000.00, 'tipo': 'ntrada'})
+        self.assertEqual(400, response.status_code)
+
+    def test_formulario_conta_saida_valida(self):
+        response = self.client.post(reverse('formulario'), {'nome': 'Pagamento', 'valor': 100.00, 'tipo': 'Saída'})
+        self.assertEqual(201, response.status_code)
+
+    def test_formulario_conta_saida_invalida(self):
+        response = self.client.post(reverse('formulario'), {'nome': 'Pagamento', 'valor': 120.00, 'tipo': 'Saia'})
+        self.assertEqual(400, response.status_code)
+
     def test_lista_ordenar_nome_ascendente(self):
 
         response = self.client.get(self.url + '?ordering=nome')
@@ -132,4 +148,3 @@ class ContaAPIViewTestCase(APITestCase):
         self.assertEqual(data[0]['valor'], '2000.00')
         self.assertEqual(data[-1]['nome'], 'Pagamento')
         self.assertEqual(data[-1]['valor'], '-200.00')
-

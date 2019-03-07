@@ -9,7 +9,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('accounts/profile/', RedirectView.as_view(url='/lista/')),
 
-    path('formulario/', FormContaAPIView.as_view()),
+    path('formulario/', FormContaAPIView.as_view(), name='formulario'),
     path('lista/?<str:ordering>', ContaAPIView.as_view()),
     path('lista/', ContaAPIView.as_view(), name='lista'),
     path('autenticacao/', LoginView.as_view(), name='autenticacao'),
